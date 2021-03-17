@@ -13,7 +13,7 @@ Project made to revisit and show some concepts about RxSwift and Delegate doing 
 # Attention
 don't forgot to open the InstaFeatures.xcworkspace file after you give the pod install if needed.
 
-# Preview Delegate
+# Preview RxSwift
 
 Still Work on it
 
