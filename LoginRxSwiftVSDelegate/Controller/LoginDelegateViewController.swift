@@ -102,7 +102,7 @@ class LoginDelegateViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        getSafeAreas()
         headerView.frame = CGRect(x: 0, y: 0, width: view.width, height: view.height / 3.0)
         
         userNameEmailField.frame = CGRect(x: 25, y: headerView.bottom + 40, width: view.width - 50, height: 52.0)
@@ -205,4 +205,21 @@ extension LoginDelegateViewController {
             self.bottomSafeArea = bottomLayoutGuide.length
         }
     }
+}
+
+extension LoginDelegateViewController: ResultLogin {
+    func doResult(result: UserResult) {
+        if result.result {
+            let alert = UIAlertController(title: "Log Delegate", message: "We logged you Successfully", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+        else {
+            let alert = UIAlertController(title: "Log In Error", message: "We were unable to log you in", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
+    
+    
 }

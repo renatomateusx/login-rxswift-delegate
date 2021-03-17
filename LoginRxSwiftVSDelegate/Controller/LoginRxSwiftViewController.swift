@@ -88,6 +88,7 @@ class LoginRxSwiftViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getSafeAreas()
         view.backgroundColor = UIColor.white
         
         loginButton.addTarget(self, action: #selector(didTapLogginButton), for: .touchUpInside)
@@ -103,7 +104,7 @@ class LoginRxSwiftViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        getSafeAreas()
         headerView.frame = CGRect(x: 0, y: 0, width: view.width, height: view.height / 3.0)
         
         userNameEmailField.frame = CGRect(x: 25, y: headerView.bottom + 40, width: view.width - 50, height: 52.0)

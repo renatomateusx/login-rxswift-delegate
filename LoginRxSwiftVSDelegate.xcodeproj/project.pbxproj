@@ -24,6 +24,8 @@
 		41F023F326022E050065E19F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F023F226022E050065E19F /* DatabaseManager.swift */; };
 		41F023F826022E2B0065E19F /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F023F726022E2B0065E19F /* StoreManager.swift */; };
 		41F023FD26022EB80065E19F /* LoginRxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F023FC26022EB80065E19F /* LoginRxViewModel.swift */; };
+		41F0241F26023AD90065E19F /* DelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0241E26023AD90065E19F /* DelegateProtocol.swift */; };
+		41F024242602409F0065E19F /* LoginDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F024232602409F0065E19F /* LoginDelegateViewModel.swift */; };
 		46DCAFA113626FBB515A1E7E /* Pods_LoginRxSwiftVSDelegate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334CE248B3F63E3B94A076F /* Pods_LoginRxSwiftVSDelegate.framework */; };
 		C83BEB48D2B9A0813BCD005D /* Pods_LoginRxSwiftVSDelegate_LoginRxSwiftVSDelegateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81512F9386333E6C1E34700 /* Pods_LoginRxSwiftVSDelegate_LoginRxSwiftVSDelegateUITests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		41F023F226022E050065E19F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		41F023F726022E2B0065E19F /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		41F023FC26022EB80065E19F /* LoginRxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRxViewModel.swift; sourceTree = "<group>"; };
+		41F0241E26023AD90065E19F /* DelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProtocol.swift; sourceTree = "<group>"; };
+		41F024232602409F0065E19F /* LoginDelegateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegateViewModel.swift; sourceTree = "<group>"; };
 		6BFBCF7A94818129F485F610 /* Pods-LoginRxSwiftVSDelegateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginRxSwiftVSDelegateTests.debug.xcconfig"; path = "Target Support Files/Pods-LoginRxSwiftVSDelegateTests/Pods-LoginRxSwiftVSDelegateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7010F5FD3F578C3CE9FAFC0 /* Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests.debug.xcconfig"; path = "Target Support Files/Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests/Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0D2B619B71D44DCEE928E5 /* Pods-LoginRxSwiftVSDelegate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginRxSwiftVSDelegate.debug.xcconfig"; path = "Target Support Files/Pods-LoginRxSwiftVSDelegate/Pods-LoginRxSwiftVSDelegate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 		41B9451E26021E1C00CE1F26 /* LoginRxSwiftVSDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				41F0241D26023AC30065E19F /* Protocols */,
 				4124D4BE260227EC0013D975 /* Extensions */,
 				41B945662602208200CE1F26 /* Views */,
 				41B9456226021F0800CE1F26 /* Resources */,
@@ -207,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				41F023FC26022EB80065E19F /* LoginRxViewModel.swift */,
+				41F024232602409F0065E19F /* LoginDelegateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -246,6 +252,14 @@
 				41B9452D26021E1E00CE1F26 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		41F0241D26023AC30065E19F /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				41F0241E26023AD90065E19F /* DelegateProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,7 +506,9 @@
 				4124D4AD260226270013D975 /* LoginRxSwiftViewController.swift in Sources */,
 				41B9452426021E1C00CE1F26 /* ViewController.swift in Sources */,
 				41B9452026021E1C00CE1F26 /* AppDelegate.swift in Sources */,
+				41F024242602409F0065E19F /* LoginDelegateViewModel.swift in Sources */,
 				4124D4BA260226870013D975 /* Models.swift in Sources */,
+				41F0241F26023AD90065E19F /* DelegateProtocol.swift in Sources */,
 				41F023FD26022EB80065E19F /* LoginRxViewModel.swift in Sources */,
 				4124D4C0260227F60013D975 /* String.swift in Sources */,
 				41B9452A26021E1C00CE1F26 /* LoginRxSwiftVSDelegate.xcdatamodeld in Sources */,

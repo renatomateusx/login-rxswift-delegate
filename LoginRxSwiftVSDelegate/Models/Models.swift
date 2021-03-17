@@ -12,3 +12,12 @@ struct Constants  {
     static let cornerRadius: CGFloat = 8.0
 }
 
+struct User: Codable {
+    let username: String
+    let email: String
+    let password: String
+}
+
+struct UserResult: Codable {
+    let result: Bool
+}
