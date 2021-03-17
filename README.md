@@ -1,7 +1,7 @@
-# login-rxswift-delegate
+# Project: login-rxswift-delegate
 Project made to revisit and show some concepts about RxSwift and Delegate doing Login
 
-# features
+# Features
 > SDWebImage
 > TabBar
 > Programmatic Screens
@@ -10,9 +10,12 @@ Project made to revisit and show some concepts about RxSwift and Delegate doing 
 > Delegate
 
 
-# attention
+# Attention
 don't forgot to open the InstaFeatures.xcworkspace file after you give the pod install if needed.
 
+# Preview Delegate
+
+Still Work on it
 
 # Preview Delegate
 
