@@ -49,7 +49,7 @@ class LoginRxSwiftViewController: UIViewController {
     
     private  let loginButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Log In", for: .normal)
+        button.setTitle("Log In RxSwift", for: .normal)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = Constants.cornerRadius
         button.backgroundColor = .systemBlue

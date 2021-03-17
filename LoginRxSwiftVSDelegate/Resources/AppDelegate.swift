@@ -27,13 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [firstNav, secondNav]
         
-        let itemFirst = UITabBarItem(title: "RxSwift", image: UIImage(named: "square.grid.2x2"), tag: 0)
-        let itemSecond = UITabBarItem(title: "Delegate", image: UIImage(named: "tab"), tag: 0)
+        let itemFirst = UITabBarItem(title: "RxSwift", image: UIImage(named: "square.grid.2x2")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), tag: 0)
+        let itemSecond = UITabBarItem(title: "Delegate", image: UIImage(named: "tab")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal), tag: 0)
         
         firstNav.tabBarItem = itemFirst
         secondNav.tabBarItem = itemSecond
         
         UITabBar.appearance().tintColor = UIColor(red: 0/255.0, green: 146/255.0, blue: 248/255.0, alpha: 1.0)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)], for: .normal)
         
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
