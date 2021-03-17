@@ -13,8 +13,8 @@ struct Constants  {
 }
 
 struct User: Codable {
-    let username: String
-    let email: String
+    let username: String?
+    let email: String?
     let password: String
 }
 

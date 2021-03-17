@@ -9,6 +9,8 @@ import UIKit
 import SafariServices
 class LoginDelegateViewController: UIViewController {
     
+    private let viewModel = LoginDelegateViewModel()
+    
     var topSafeArea: CGFloat = 0.0
     var bottomSafeArea: CGFloat = 0.0
     
@@ -88,7 +90,7 @@ class LoginDelegateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
+        viewModel.delegate = self
         loginButton.addTarget(self, action: #selector(didTapLogginButton), for: .touchUpInside)
 //        createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(didTapTermsButton), for: .touchUpInside)
@@ -97,7 +99,6 @@ class LoginDelegateViewController: UIViewController {
         userNameEmailField.delegate = self
         passwordField.delegate = self
         addSubViews()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidLayoutSubviews() {
@@ -114,8 +115,6 @@ class LoginDelegateViewController: UIViewController {
         
         termsButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-100, width: view.width - 20, height: 50)
         privacyButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-50, width: view.width - 20, height: 50)
-        
-        
         
         configureHeaderView()
     }
@@ -155,19 +154,8 @@ class LoginDelegateViewController: UIViewController {
         }else{
             username = userNameEmail
         }
-        AuthManager.shared.login(username: username, email: email, password: password) { logged in
-            DispatchQueue.main.async {
-                if logged {
-                    self.dismiss(animated: true, completion: nil)
-                }
-                else {
-                    let alert = UIAlertController(title: "Log In Error", message: "We were unable to log you in", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    self.present(alert, animated: true)
-                }
-            }
-            
-        }
+        
+        viewModel.doLogin(user: User(username: username, email: email, password: password))
     }
     @objc private func didTapTermsButton(){
         guard let url = URL(string: "https://help.instagram.com/581066165581870?helpref=page_content") else {return}
@@ -210,7 +198,7 @@ extension LoginDelegateViewController {
 extension LoginDelegateViewController: ResultLogin {
     func doResult(result: UserResult) {
         if result.result {
-            let alert = UIAlertController(title: "Log Delegate", message: "We logged you Successfully", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Log In By Delegate", message: "We logged you Successfully", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }

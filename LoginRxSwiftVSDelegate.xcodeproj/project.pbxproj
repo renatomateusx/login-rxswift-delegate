@@ -26,6 +26,8 @@
 		41F023FD26022EB80065E19F /* LoginRxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F023FC26022EB80065E19F /* LoginRxViewModel.swift */; };
 		41F0241F26023AD90065E19F /* DelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F0241E26023AD90065E19F /* DelegateProtocol.swift */; };
 		41F024242602409F0065E19F /* LoginDelegateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41F024232602409F0065E19F /* LoginDelegateViewModel.swift */; };
+		41F024502602512B0065E19F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F0244F2602512B0065E19F /* GoogleService-Info.plist */; };
+		41F0245B2602526B0065E19F /* GoogleService-Info-3.plist in Resources */ = {isa = PBXBuildFile; fileRef = 41F0245A2602526B0065E19F /* GoogleService-Info-3.plist */; };
 		46DCAFA113626FBB515A1E7E /* Pods_LoginRxSwiftVSDelegate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2334CE248B3F63E3B94A076F /* Pods_LoginRxSwiftVSDelegate.framework */; };
 		C83BEB48D2B9A0813BCD005D /* Pods_LoginRxSwiftVSDelegate_LoginRxSwiftVSDelegateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F81512F9386333E6C1E34700 /* Pods_LoginRxSwiftVSDelegate_LoginRxSwiftVSDelegateUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,8 @@
 		41F023FC26022EB80065E19F /* LoginRxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRxViewModel.swift; sourceTree = "<group>"; };
 		41F0241E26023AD90065E19F /* DelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProtocol.swift; sourceTree = "<group>"; };
 		41F024232602409F0065E19F /* LoginDelegateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegateViewModel.swift; sourceTree = "<group>"; };
+		41F0244F2602512B0065E19F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		41F0245A2602526B0065E19F /* GoogleService-Info-3.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-3.plist"; sourceTree = "<group>"; };
 		6BFBCF7A94818129F485F610 /* Pods-LoginRxSwiftVSDelegateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginRxSwiftVSDelegateTests.debug.xcconfig"; path = "Target Support Files/Pods-LoginRxSwiftVSDelegateTests/Pods-LoginRxSwiftVSDelegateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C7010F5FD3F578C3CE9FAFC0 /* Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests.debug.xcconfig"; path = "Target Support Files/Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests/Pods-LoginRxSwiftVSDelegate-LoginRxSwiftVSDelegateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0D2B619B71D44DCEE928E5 /* Pods-LoginRxSwiftVSDelegate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginRxSwiftVSDelegate.debug.xcconfig"; path = "Target Support Files/Pods-LoginRxSwiftVSDelegate/Pods-LoginRxSwiftVSDelegate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 		41B9456226021F0800CE1F26 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				41F0244F2602512B0065E19F /* GoogleService-Info.plist */,
+				41F0245A2602526B0065E19F /* GoogleService-Info-3.plist */,
 				41B9451F26021E1C00CE1F26 /* AppDelegate.swift */,
 				41B9452B26021E1E00CE1F26 /* Assets.xcassets */,
 			);
@@ -372,6 +378,8 @@
 			files = (
 				41B9452F26021E1E00CE1F26 /* LaunchScreen.storyboard in Resources */,
 				41B9452C26021E1E00CE1F26 /* Assets.xcassets in Resources */,
+				41F024502602512B0065E19F /* GoogleService-Info.plist in Resources */,
+				41F0245B2602526B0065E19F /* GoogleService-Info-3.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
