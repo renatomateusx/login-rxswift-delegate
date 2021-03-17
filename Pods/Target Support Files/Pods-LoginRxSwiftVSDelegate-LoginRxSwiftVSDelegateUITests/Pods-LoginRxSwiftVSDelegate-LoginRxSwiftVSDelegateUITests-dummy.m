@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_LoginRxSwiftVSDelegate_LoginRxSwiftVSDelegateUITests : NSObject
+@end
+@implementation PodsDummy_Pods_LoginRxSwiftVSDelegate_LoginRxSwiftVSDelegateUITests
+@end
