@@ -12,10 +12,13 @@ Project made to revisit and show some concepts about RxSwift and Delegate doing 
 
 # Attention
 don't forgot to open the InstaFeatures.xcworkspace file after you give the pod install if needed.
+use login: renatomateusx@gmail.com and password: password
 
 # Preview RxSwift
 
-Still Work on it
+![alt tag](https://github.com/renatomateusx/login-rxswift-delegate/blob/master/1.png)
+![alt tag](https://github.com/renatomateusx/login-rxswift-delegate/blob/master/2.png)
+![alt tag](https://github.com/renatomateusx/login-rxswift-delegate/blob/master/3.png)
 
 # Preview Delegate
 
