@@ -90,6 +90,21 @@ class LoginRxSwiftViewController: UIViewController {
         return header
     }()
     
+    private let dimmeView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .black
+        view.isHidden = true
+        view.alpha = 0
+        return view
+    }()
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+        spinner.hidesWhenStopped = true
+        spinner.tintColor = .blue
+        return spinner
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getSafeAreas()
@@ -118,6 +133,11 @@ class LoginRxSwiftViewController: UIViewController {
         
         termsButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-100, width: view.width - 20, height: 50)
         privacyButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-50, width: view.width - 20, height: 50)
+       
+        dimmeView.frame = view.bounds
+        
+        spinner.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        spinner.center = view.center
         
         configureHeaderView()
     }
@@ -132,6 +152,26 @@ class LoginRxSwiftViewController: UIViewController {
         headerView.addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
         imageView.frame = CGRect(x: headerView.width/4.0, y: topSafeArea, width: headerView.width / 2, height: headerView.height - topSafeArea)
+        
+     
+    }
+    
+    private func configureDimme(_ show: Bool){
+        if !show {
+            dimmeView.isHidden = false
+            UIView.animate(withDuration: 0.2) {
+                self.dimmeView.alpha = 0.4
+            }
+        }
+        else{
+            UIView.animate(withDuration: 0.2, animations: {
+                self.dimmeView.alpha = 0
+            }) { done in
+                if done {
+                    self.dimmeView.isHidden = true
+                }
+            }
+        }
     }
     
     private func configureRx(){
@@ -142,15 +182,21 @@ class LoginRxSwiftViewController: UIViewController {
         loginButton.rx.tap.bind(to:viewModel.input.loginButton).disposed(by:disposeBag)
         
         loginButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
+            self?.configureDimme(false)
+            self?.spinner.startAnimating()
             self?.viewModel.doLogin()
         }).disposed(by: disposeBag)
         
       ///Results Events Create
         viewModel.output.loginResultObservable.subscribe(onNext:  { [unowned self] _ in
+            self.spinner.stopAnimating()
+            self.configureDimme(true)
             self.presentSuccess()
         }).disposed(by: disposeBag)
         
         viewModel.output.errorsObservable.subscribe(onNext: { [unowned self] _ in
+            self.spinner.stopAnimating()
+            self.configureDimme(true)
             self.presentError()
         }).disposed(by: disposeBag)
     }
@@ -163,6 +209,8 @@ class LoginRxSwiftViewController: UIViewController {
         view.addSubview(privacyButton)
         view.addSubview(createAccountButton)
         view.addSubview(headerView)
+        view.addSubview(dimmeView)
+        view.addSubview(spinner)
     }
     
    

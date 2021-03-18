@@ -87,6 +87,21 @@ class LoginDelegateViewController: UIViewController {
         return header
     }()
     
+    private let dimmeView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .black
+        view.isHidden = true
+        view.alpha = 0
+        return view
+    }()
+    
+    private let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
+        spinner.hidesWhenStopped = true
+        spinner.tintColor = .blue
+        return spinner
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -116,6 +131,11 @@ class LoginDelegateViewController: UIViewController {
         termsButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-100, width: view.width - 20, height: 50)
         privacyButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-50, width: view.width - 20, height: 50)
         
+        dimmeView.frame = view.bounds
+        
+        spinner.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        spinner.center = view.center
+        
         configureHeaderView()
     }
     
@@ -139,9 +159,14 @@ class LoginDelegateViewController: UIViewController {
         view.addSubview(privacyButton)
         view.addSubview(createAccountButton)
         view.addSubview(headerView)
+        view.addSubview(dimmeView)
+        view.addSubview(spinner)
     }
     
     @objc private func didTapLogginButton(){
+        configureDimme(false)
+        spinner.startAnimating()
+        
         passwordField.resignFirstResponder()
         userNameEmailField.resignFirstResponder()
         guard let userNameEmail = userNameEmailField.text, !userNameEmail.isEmpty, let password = passwordField.text, !password.isEmpty, password.count >= 8 else {return}
@@ -166,6 +191,24 @@ class LoginDelegateViewController: UIViewController {
         guard let url = URL(string: "https://help.instagram.com/519522125107875") else {return}
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true)
+    }
+    
+    private func configureDimme(_ show: Bool){
+        if !show {
+            dimmeView.isHidden = false
+            UIView.animate(withDuration: 0.2) {
+                self.dimmeView.alpha = 0.4
+            }
+        }
+        else{
+            UIView.animate(withDuration: 0.2, animations: {
+                self.dimmeView.alpha = 0
+            }) { done in
+                if done {
+                    self.dimmeView.isHidden = true
+                }
+            }
+        }
     }
     
 
@@ -197,6 +240,8 @@ extension LoginDelegateViewController {
 
 extension LoginDelegateViewController: ResultLogin {
     func doResult(result: UserResult) {
+        configureDimme(true)
+        spinner.stopAnimating()
         if result.result {
             let alert = UIAlertController(title: "Log In By Delegate", message: "We logged you Successfully", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

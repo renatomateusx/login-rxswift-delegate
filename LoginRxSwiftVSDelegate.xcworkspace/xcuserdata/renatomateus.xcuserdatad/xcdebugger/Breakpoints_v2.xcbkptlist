@@ -110,8 +110,8 @@
             filePath = "LoginRxSwiftVSDelegate/Controller/LoginDelegateViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
             landmarkName = "doResult(result:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -264,14 +264,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A341CD50-E2E6-4FE3-8C26-15BD0C811993"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoginRxSwiftVSDelegate/Controller/LoginRxSwiftViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "configureRx()"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,8 +286,8 @@
             filePath = "LoginRxSwiftVSDelegate/Controller/LoginRxSwiftViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "configureRx()"
             landmarkType = "7">
          </BreakpointContent>
