@@ -95,8 +95,6 @@ class LoginRxSwiftViewController: UIViewController {
         getSafeAreas()
         view.backgroundColor = UIColor.white
         
-        //loginButton.addTarget(self, action: #selector(didTapLogginButton), for: .touchUpInside)
-//        createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(didTapTermsButton), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
         
@@ -121,11 +119,7 @@ class LoginRxSwiftViewController: UIViewController {
         termsButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-100, width: view.width - 20, height: 50)
         privacyButton.frame = CGRect(x: 10, y: view.height - bottomSafeArea-50, width: view.width - 20, height: 50)
         
-        
-        
         configureHeaderView()
-        
-      
     }
     
     private func configureHeaderView(){
@@ -169,23 +163,6 @@ class LoginRxSwiftViewController: UIViewController {
         view.addSubview(privacyButton)
         view.addSubview(createAccountButton)
         view.addSubview(headerView)
-    }
-    
-    @objc private func didTapLogginButton(){
-        passwordField.resignFirstResponder()
-        userNameEmailField.resignFirstResponder()
-        guard let userNameEmail = userNameEmailField.text, !userNameEmail.isEmpty, let password = passwordField.text, !password.isEmpty, password.count >= 8 else {return}
-        
-        //MARK: Login Functionality
-        var username: String?
-        var email: String?
-        if userNameEmail.isEmail() {
-            email = userNameEmail
-        }else{
-            username = userNameEmail
-        }
-        viewModel.doLogin()
-        
     }
     
    
