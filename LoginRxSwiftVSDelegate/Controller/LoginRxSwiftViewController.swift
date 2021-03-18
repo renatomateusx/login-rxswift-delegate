@@ -6,9 +6,13 @@
 //
 import SafariServices
 import UIKit
+import RxSwift
+import RxCocoa
 
 class LoginRxSwiftViewController: UIViewController {
 
+    let viewModel = LoginRxViewModel()
+    let disposeBag = DisposeBag()
     
     var topSafeArea: CGFloat = 0.0
     var bottomSafeArea: CGFloat = 0.0
@@ -91,7 +95,7 @@ class LoginRxSwiftViewController: UIViewController {
         getSafeAreas()
         view.backgroundColor = UIColor.white
         
-        loginButton.addTarget(self, action: #selector(didTapLogginButton), for: .touchUpInside)
+        //loginButton.addTarget(self, action: #selector(didTapLogginButton), for: .touchUpInside)
 //        createAccountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
         termsButton.addTarget(self, action: #selector(didTapTermsButton), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(didTapPrivacyButton), for: .touchUpInside)
@@ -99,7 +103,7 @@ class LoginRxSwiftViewController: UIViewController {
         userNameEmailField.delegate = self
         passwordField.delegate = self
         addSubViews()
-        // Do any additional setup after loading the view.
+        configureRx()
     }
     
     override func viewDidLayoutSubviews() {
@@ -120,6 +124,8 @@ class LoginRxSwiftViewController: UIViewController {
         
         
         configureHeaderView()
+        
+      
     }
     
     private func configureHeaderView(){
@@ -132,6 +138,27 @@ class LoginRxSwiftViewController: UIViewController {
         headerView.addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
         imageView.frame = CGRect(x: headerView.width/4.0, y: topSafeArea, width: headerView.width / 2, height: headerView.height - topSafeArea)
+    }
+    
+    private func configureRx(){
+        ///Fields Event Create
+        
+        userNameEmailField.rx.text.orEmpty.bind(to: viewModel.input.email).disposed(by: disposeBag)
+        passwordField.rx.text.orEmpty.bind(to: viewModel.input.password).disposed(by: disposeBag)
+        loginButton.rx.tap.bind(to:viewModel.input.loginButton).disposed(by:disposeBag)
+        
+        loginButton.rx.tap.asObservable().subscribe(onNext: { [weak self] _ in
+            self?.viewModel.doLogin()
+        }).disposed(by: disposeBag)
+        
+      ///Results Events Create
+        viewModel.output.loginResultObservable.subscribe(onNext:  { [unowned self] _ in
+            self.presentSuccess()
+        }).disposed(by: disposeBag)
+        
+        viewModel.output.errorsObservable.subscribe(onNext: { [unowned self] _ in
+            self.presentError()
+        }).disposed(by: disposeBag)
     }
     
     private func addSubViews(){
@@ -157,20 +184,11 @@ class LoginRxSwiftViewController: UIViewController {
         }else{
             username = userNameEmail
         }
-        AuthManager.shared.login(username: username, email: email, password: password) { logged in
-            DispatchQueue.main.async {
-                if logged {
-                    self.dismiss(animated: true, completion: nil)
-                }
-                else {
-                    let alert = UIAlertController(title: "Log In Error", message: "We were unable to log you in", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    self.present(alert, animated: true)
-                }
-            }
-            
-        }
+        viewModel.doLogin()
+        
     }
+    
+   
     @objc private func didTapTermsButton(){
         guard let url = URL(string: "https://help.instagram.com/581066165581870?helpref=page_content") else {return}
         let vc = SFSafariViewController(url: url)
@@ -190,9 +208,22 @@ extension LoginRxSwiftViewController : UITextFieldDelegate {
             passwordField.becomeFirstResponder()
         }
         else if textField == passwordField {
-            didTapLogginButton()
+            //self.didTapLogginButton()
+            loginButton.becomeFirstResponder()
         }
         return true
+    }
+    
+    private func presentSuccess(){
+        let alert = UIAlertController(title: "Log In By RxSwift", message: "We logged you Successfully", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    private func presentError(){
+        let alert = UIAlertController(title: "Log In Error", message: "We were unable to log you in", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
 }
 
