@@ -11,8 +11,12 @@ Project made to revisit and show some concepts about RxSwift and Delegate doing 
 
 
 # Attention
-don't forgot to open the InstaFeatures.xcworkspace file after you give the pod install if needed.
-use login: renatomateusx@gmail.com and password: password
+
+Don't forgot to open the InstaFeatures.xcworkspace file after you give the pod install if needed.
+
+I didn't worried about the view and reusable views. I just wanted to show how rxswift and delegate works
+
+Use login: renatomateusx@gmail.com and password: password or use another password or login to get error.
 
 # Preview RxSwift
 
