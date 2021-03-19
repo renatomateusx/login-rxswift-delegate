@@ -21,6 +21,7 @@ class LoginRxSwiftViewController: UIViewController {
     private let userNameEmailField: UITextField = {
         let field = UITextField()
         field.placeholder = "Username or Email..."
+        field.accessibilityIdentifier = "username"
         field.returnKeyType = .next
         field.leftViewMode = .always
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
@@ -38,6 +39,7 @@ class LoginRxSwiftViewController: UIViewController {
         let field = UITextField()
         field.isSecureTextEntry = true
         field.placeholder = "Password..."
+        field.accessibilityIdentifier = "password"
         field.returnKeyType = .continue
         field.leftViewMode = .always
         field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
