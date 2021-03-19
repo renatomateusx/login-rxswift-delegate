@@ -11,20 +11,24 @@ import XCTest
 class LoginRxSwiftVSDelegateTests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+    
+    func testAUthManager() throws {
+        AuthManager.shared.login(username: "renatomateusx@gmail.com", email: "renatomateusx@gmail.com", password: "password") { (result) in
+            XCTAssertTrue(result)
+        }
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEmailIsValid() throws {
+        let validEmail = "renatomateusx@gmail.com"
+        let result = validEmail.isEmail()
+        XCTAssertTrue(result)
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }

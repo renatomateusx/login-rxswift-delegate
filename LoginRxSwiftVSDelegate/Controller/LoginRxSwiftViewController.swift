@@ -175,8 +175,8 @@ class LoginRxSwiftViewController: UIViewController {
     }
     
     private func configureRx(){
-        ///Fields Event Create
         
+        ///Fields Event Create
         userNameEmailField.rx.text.orEmpty.bind(to: viewModel.input.email).disposed(by: disposeBag)
         passwordField.rx.text.orEmpty.bind(to: viewModel.input.password).disposed(by: disposeBag)
         loginButton.rx.tap.bind(to:viewModel.input.loginButton).disposed(by:disposeBag)
