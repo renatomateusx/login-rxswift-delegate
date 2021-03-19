@@ -32,13 +32,10 @@ class LoginRxViewModel: ViewModelProtocol, LoginRx {
     private let loginButton = PublishSubject<Void>()
     
     init(){
-        
         input = Input(
             email: usernameSubject.asObserver(), username: usernameSubject.asObserver(), password: passwordSubject.asObserver(), loginButton: loginButton.asObserver()
         )
-        output = Output(loginResultObservable: loginResultSubject.asObserver(), errorsObservable: errorsSubject.asObserver())
-       
-        
+        output = Output(loginResultObservable: loginResultSubject.asObservable(), errorsObservable: errorsSubject.asObservable())
     }
     
     func doLogin() {
@@ -53,9 +50,5 @@ class LoginRxViewModel: ViewModelProtocol, LoginRx {
         }.subscribe(onNext: { response in
             print(response)
         }).disposed(by: DisposeBag())
-        
-
-        
-    }
-    
+    }    
 }
