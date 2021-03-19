@@ -27,6 +27,24 @@ class LoginRxSwiftVSDelegateTests: XCTestCase {
         let result = validEmail.isEmail()
         XCTAssertTrue(result)
     }
+    
+    func testEmailIsInvalid() throws {
+        let validEmail = "renatomateusxgmail.com"
+        let result = validEmail.isEmail()
+        XCTAssertFalse(result)
+    }
+    
+    func testToNoEmail() throws {
+        let email = "renatomateusx@gmail.com"
+        let result = email.toNoEmail()
+        XCTAssertFalse(result.contains("@"))
+    }
+    
+    func testToNoEmailError() throws {
+        let email = "renatomateusxgmail.com"
+        let result = email.toNoEmail()
+        XCTAssertFalse(result.contains("@"))
+    }
 
     func testPerformanceExample() throws {
         self.measure {

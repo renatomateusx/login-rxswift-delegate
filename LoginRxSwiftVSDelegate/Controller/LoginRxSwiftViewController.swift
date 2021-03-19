@@ -60,6 +60,7 @@ class LoginRxSwiftViewController: UIViewController {
         button.layer.cornerRadius = Constants.cornerRadius
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
+        button.accessibilityIdentifier = "loginButton"
         return button
     }()
     
